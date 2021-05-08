@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include partials/nav.ejs%>
+<link rel="stylesheet" href="../stylesheets/login.css">
+<body id="page-top">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <div class="login-reg-panel">
+            <div class="login-info-box">
+                <h2>Have an account?</h2>
+                <p>Lorem ipsum dolor sit amet</p>
+                <label id="label-register" for="log-reg-show">Add Points</label>
+                <input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
+            </div>
+                                
+                                
+            <div class="white-panel">
+                <div class="login-show">
+                    <h2>Add Points</h2>
+                    <form  method="POST" action="/vendors/addPoints">
+                        <input type="text" name="userId" placeholder="User ID">
+                        <input type="number" name="NOpoints" placeholder="Amount of points">
+                        <input type="submit" value="Add points">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <footer>
+        
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+
+    <script src="../javascripts/login.js"></script>
+
+</body>
+
+</html>
