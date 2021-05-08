@@ -26,9 +26,23 @@ namespace JwtAuthService.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] User user)
+        public ActionResult<User> Login(User user)
         {
-            var dbUser = _userService.Get(user.Username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            var u = _userService.Get(user.Username);
+            System.Console.WriteLine(u);
+            return Ok();
+
+        }
+        /*(lic async Task<IActionResult> Login([FromBody] User user)
+        {
+            System.Console.WriteLine("function start!");
+            string uname = user.Username;
+            System.Console.WriteLine("ping "+uname);
+            var dbUser = await _userService.Get(uname);
 
             if (dbUser == null)
             {
@@ -59,6 +73,7 @@ namespace JwtAuthService.Controllers
             
         }
         
+        
 
 
         /*[HttpGet("verify")]
@@ -84,6 +99,7 @@ namespace JwtAuthService.Controllers
             }
 
             return NoContent();
-        }*/
+        }
+    }*/
     }
 }

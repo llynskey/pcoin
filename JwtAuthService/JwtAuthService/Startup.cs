@@ -28,6 +28,7 @@ namespace JwtAuthService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Console.WriteLine("configuring services");
             // requires using Microsoft.Extensions.Options
             services.Configure<DatabaseSettings>(
                 Configuration.GetSection(nameof(DatabaseSettings)));

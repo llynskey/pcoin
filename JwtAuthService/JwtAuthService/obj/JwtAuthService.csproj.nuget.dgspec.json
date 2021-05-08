@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lawre\\source\\repos\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj": {}
+    "C:\\Users\\Lawrence\\Documents\\Projects\\New folder\\pcoin\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lawre\\source\\repos\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj": {
+    "C:\\Users\\Lawrence\\Documents\\Projects\\New folder\\pcoin\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lawre\\source\\repos\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj",
+        "projectUniqueName": "C:\\Users\\Lawrence\\Documents\\Projects\\New folder\\pcoin\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj",
         "projectName": "JwtAuthService",
-        "projectPath": "C:\\Users\\lawre\\source\\repos\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj",
-        "packagesPath": "C:\\Users\\lawre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lawre\\source\\repos\\JwtAuthService\\JwtAuthService\\obj\\",
+        "projectPath": "C:\\Users\\Lawrence\\Documents\\Projects\\New folder\\pcoin\\JwtAuthService\\JwtAuthService\\JwtAuthService.csproj",
+        "packagesPath": "C:\\Users\\Lawrence\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lawrence\\Documents\\Projects\\New folder\\pcoin\\JwtAuthService\\JwtAuthService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\lawre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lawrence\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,21 +45,17 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -67,7 +63,7 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.12.2, )"
+              "version": "[2.12.3, )"
             }
           },
           "imports": [
@@ -88,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
