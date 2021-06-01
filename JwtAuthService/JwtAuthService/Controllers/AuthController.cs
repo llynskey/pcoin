@@ -33,16 +33,28 @@ namespace JwtAuthService.Controllers
                 return NotFound();
             }
             var u = _userService.Get(user.Username);
-            System.Console.WriteLine(u);
-            return Ok();
+            var isValid = u.Pass == user.Pass;
+            System.Console.WriteLine("Username: " + u.Username);
+            if (isValid)
+            {
+                var token = _tokenBuilder.BuildToken(user.Username);
+
+                return Ok(token);
+            }
+            else
+            {
+                return Unauthorized("Wrong Password");
+            }
 
         }
-        /*(lic async Task<IActionResult> Login([FromBody] User user)
+
+        /*[HttpPost("")]
+        public Task<IActionResult> Login([FromBody] User user)
         {
             System.Console.WriteLine("function start!");
             string uname = user.Username;
-            System.Console.WriteLine("ping "+uname);
-            var dbUser = await _userService.Get(uname);
+            System.Console.WriteLine("ping " + uname);
+            var dbUser = _userService.Get(uname);
 
             if (dbUser == null)
             {
@@ -51,7 +63,7 @@ namespace JwtAuthService.Controllers
 
             // This is just an example, made for simplicity; do not store plain passwords in the database
             // Always hash and salt your passwords
-            var isValid = dbUser.Password == user.Password;
+            var isValid = dbUser.Pass == user.Pass;
 
             if (!isValid)
             {
@@ -70,13 +82,14 @@ namespace JwtAuthService.Controllers
 
 
             return Ok(token);
-            
+
         }
+    
         
         
 
 
-        /*[HttpGet("verify")]
+        [HttpGet("verify")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> VerifyToken()
         {
@@ -89,9 +102,7 @@ namespace JwtAuthService.Controllers
                 return Unauthorized();
             }
 
-            var userExists = await _context
-                .Users
-                .AnyAsync(u => u.Username == username.Value);
+          
 
             if (!userExists)
             {
@@ -99,7 +110,7 @@ namespace JwtAuthService.Controllers
             }
 
             return NoContent();
-        }
-    }*/
+        }*/
     }
+    
 }
