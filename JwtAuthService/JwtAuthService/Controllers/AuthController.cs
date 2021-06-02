@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Threading.Tasks;
 using System.Linq;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Cors;
 
 namespace JwtAuthService.Controllers
 {
@@ -18,6 +19,7 @@ namespace JwtAuthService.Controllers
         private readonly ITokenBuilder _tokenBuilder;
 
         public AuthController(
+
             ITokenBuilder tokenBuilder,
             UserService userService)
         {

@@ -18,6 +18,7 @@ namespace JwtAuthService
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,6 +31,18 @@ namespace JwtAuthService
         {
             Console.WriteLine("configuring services");
             // requires using Microsoft.Extensions.Options
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                    builder =>
+                                    {
+                                        builder.WithOrigins("http://localhost:3000")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                                    });
+            });
+
             services.Configure<DatabaseSettings>(
                 Configuration.GetSection(nameof(DatabaseSettings)));
 
@@ -76,6 +89,8 @@ namespace JwtAuthService
             }
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
