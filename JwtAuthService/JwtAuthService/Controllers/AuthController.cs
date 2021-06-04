@@ -1,13 +1,6 @@
 ﻿using JwtAuthService.Models;
 using JwtAuthService.services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Threading.Tasks;
-using System.Linq;
-using MongoDB.Driver;
-using Microsoft.AspNetCore.Cors;
 
 namespace JwtAuthService.Controllers
 {
@@ -35,19 +28,26 @@ namespace JwtAuthService.Controllers
                 return NotFound();
             }
             var u = _userService.Get(user.Username);
-            var isValid = u.Pass == user.Pass;
-            System.Console.WriteLine("Username: " + u.Username);
-            if (isValid)
+            if (u != null)
             {
-                var token = _tokenBuilder.BuildToken(user.Username);
+                var isValid = u.Pass == user.Pass;
+                System.Console.WriteLine("Username: " + u.Username);
+                if (isValid)
+                {
+                    var token = _tokenBuilder.BuildToken(user.Username);
 
-                return Ok(token);
+                    return Ok(token);
+                }
+                else
+                {
+                    return Unauthorized("Wrong Password");
+                }
             }
             else
             {
-                return Unauthorized("Wrong Password");
+                return Unauthorized("User not found");
             }
-
+            
         }
 
         /*[HttpPost("")]

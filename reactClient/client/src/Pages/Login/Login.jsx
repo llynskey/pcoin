@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import './Login.css';
 
 export default function Login(props) {
 
@@ -17,8 +18,10 @@ export default function Login(props) {
         },{headers:{ 'Content-Type': 'application/json'}}).then((res) => {
             if(res.status === 200){
                 alert("woop")
+                console.log(res.data);
+                localStorage.setItem('jwt', res.data);
             }
-        }).catch(err => console.log(err))
+        }).catch(err => alert(err.response.data));
     }
 
 
