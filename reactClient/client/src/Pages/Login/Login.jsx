@@ -12,7 +12,7 @@ export default function Login(props) {
     function onSubmit(event) {
 
         event.preventDefault()
-        axios.post('http://localhost:1234/login', {
+        axios.post('http://login.pcoin.life', {
             Username: user.username,
             Pass: user.password
         },{headers:{ 'Content-Type': 'application/json'}}).then((res) => {

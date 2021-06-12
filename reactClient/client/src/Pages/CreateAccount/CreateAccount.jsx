@@ -13,7 +13,7 @@ class CreateAccount extends React.Component {
       email: "",
       username: "",
       password: "",
-      type: "Customer" // set to default selected value in user role switch
+      type: "Customer" //default
     }
 
     this.registerPost = this.registerPost.bind(this);
@@ -28,13 +28,14 @@ class CreateAccount extends React.Component {
 
   async registerPost() {
     console.log("type"+ this.state.type);
-    return axios.post('http://localhost:1234/user/register', {
+    if(this.state.type == "Customer"){
+    return axios.post('http://account.pcoin.life/customer', {
+      _id: "69",
       FirstName: this.state.firstName,
       LastName:  this.state.lastName,
       Email:      this.state.email,
       Username: this.state.username,
-      Password: this.state.password,
-      Type: this.state.type
+      Pass: this.state.password
     },{headers: { 'Authorization': `${localStorage.getItem('jwt')}`}}).then((res) => {
       if (res.status === 200) {
         document.location.href = '/login';
@@ -42,6 +43,22 @@ class CreateAccount extends React.Component {
         console.error("registration error");
       }
     });
+  }else{
+    return axios.post('http://account.pcoin.life/vendor', {
+      _id: "69",
+      FirstName: this.state.firstName,
+      LastName:  this.state.lastName,
+      Email:      this.state.email,
+      Username: this.state.username,
+      Password: this.state.password
+    },{headers: { 'Authorization': `${localStorage.getItem('jwt')}`}}).then((res) => {
+      if (res.status === 200) {
+        document.location.href = '/login';
+      } else {
+        console.error("registration error");
+      }
+    });
+  }
   }
 
   async handleSubmit(e) {
@@ -128,7 +145,6 @@ class CreateAccount extends React.Component {
             <Form.Control as="select" value={this.state.type} onChange={(e) => this.setType(e.target.value)}>
               <option selected value="Client">Customer</option>
               <option value="Support">Vendor</option>
-              <option value="Admin">Admin</option>
             </Form.Control>
           </Form.Group>
           <Button block size="lg" type="submit">
