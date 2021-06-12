@@ -11,10 +11,7 @@ namespace JwtAuthService.Controllers
         private readonly UserService _userService;
         private readonly ITokenBuilder _tokenBuilder;
 
-        public AuthController(
-
-            ITokenBuilder tokenBuilder,
-            UserService userService)
+        public AuthController(ITokenBuilder tokenBuilder, UserService userService)
         {
             _userService = userService;
             _tokenBuilder = tokenBuilder;
