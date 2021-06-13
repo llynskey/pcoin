@@ -17,7 +17,14 @@ namespace JwtAuthService.Controllers
             _tokenBuilder = tokenBuilder;
         }
 
-        [HttpPost("login")]
+       [HttpPost("create")]
+       public ActionResult CreateToken(User user)
+        {
+            var token = _tokenBuilder.BuildToken(user.Username);
+            return Ok(token);
+        }
+        
+        /* [HttpPost("login")]
         public ActionResult<User> Login(User user)
         {
             if (user == null)
@@ -47,7 +54,7 @@ namespace JwtAuthService.Controllers
             
         }
 
-        /*[HttpPost("")]
+        [HttpPost("")]
         public Task<IActionResult> Login([FromBody] User user)
         {
             System.Console.WriteLine("function start!");

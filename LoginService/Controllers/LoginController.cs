@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using LoginService.Models;
 using LoginService.Services;
 using System.Net.Http;
@@ -32,8 +33,8 @@ namespace LoginService.Controllers
             var response = Vendor != null && vendor.Pass == Vendor.Pass ? (ActionResult) Ok() : (ActionResult) Unauthorized();
             if(response == (ActionResult)Ok())
             {
-                var responseString = await "http://jwt.pcoin.life"
-                .PostUrlEncodedAsync(new { Username = vendor.Username })
+                var responseString = await "http://auth.pcoin.life/create"
+                .PostJsonAsync(new { Username = vendor.Username })
                 .ReceiveString();
                 System.Console.WriteLine(responseString);
             };
@@ -41,11 +42,24 @@ namespace LoginService.Controllers
         }
 
         [HttpPost("customer")]
-        public ActionResult<Customer> LoginCustomer(Customer customer)
+        public async Task<ActionResult<Customer>> LoginCustomerAsync(Customer customer)
         {
             var Customer = _customerService.Get(customer.Username);
-            var response = Customer != null && customer.Pass == Customer.Pass ? (ActionResult) Ok() : (ActionResult) Unauthorized();
-            return response;
+            var response = Customer != null && customer.Pass == Customer.Pass ? "OK": "NotOkay";
+            Console.WriteLine(response);
+            if (response == "OK")
+            {
+                System.Console.WriteLine("here");
+                var responseString = await "http://auth.pcoin.life/create"
+                .PostJsonAsync(new { Username = customer.Username })
+                .ReceiveString();
+                System.Console.WriteLine(responseString);
+                return Ok(responseString);
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
     }
 }
