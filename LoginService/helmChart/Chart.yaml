@@ -1,6 +1,6 @@
 apiVersion: v2
-name: Login-service
-description: Login service for pcoin
+name: login-service
+description: login service for pcoin
 
 # A chart can be either an 'application' or a 'library' chart.
 #

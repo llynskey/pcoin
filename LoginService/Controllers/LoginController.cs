@@ -15,8 +15,6 @@ namespace LoginService.Controllers
     {
         private readonly VendorService _vendorService;
         private readonly CustomerService _customerService;
-        private static readonly HttpClient _client = new HttpClient();
-
 
         public LoginController(VendorService vendorService, CustomerService customerService)
         {

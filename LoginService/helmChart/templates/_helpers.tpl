@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "Login-service.name" -}}
+{{- define "login-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "Login-service.fullname" -}}
+{{- define "login-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "Login-service.chart" -}}
+{{- define "login-service.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "Login-service.labels" -}}
-helm.sh/chart: {{ include "Login-service.chart" . }}
-{{ include "Login-service.selectorLabels" . }}
+{{- define "login-service.labels" -}}
+helm.sh/chart: {{ include "login-service.chart" . }}
+{{ include "login-service.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,18 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "Login-service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "Login-service.name" . }}
+{{- define "login-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "login-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Create the name of the service Login to use
+Create the name of the service account to use
 */}}
-{{- define "Login-service.serviceLoginName" -}}
-{{- if .Values.serviceLogin.create }}
-{{- default (include "Login-service.fullname" .) .Values.serviceLogin.name }}
+{{- define "login-service.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "login-service.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
-{{- default "default" .Values.serviceLogin.name }}
+{{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
