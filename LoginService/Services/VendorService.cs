@@ -9,7 +9,7 @@ namespace LoginService.Services
     {
         private readonly IMongoCollection<Vendor> _vendors;
 
-        public VendorService(IDatabaseSettings settings)
+        public VendorService(IVendorDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
@@ -17,15 +17,7 @@ namespace LoginService.Services
             _vendors = database.GetCollection<Vendor>(settings.CollectionName);
         }
 
-        public List<Vendor> Get() =>
-            _vendors.Find(vendor => true).ToList();
-
         public Vendor Get(string username) =>
             _vendors.Find<Vendor>(vendor => vendor.Username == username).FirstOrDefault();
-        public Vendor Create(Vendor vendor)
-        {
-            _vendors.InsertOne(vendor);
-            return vendor;
-        }
     }
 }

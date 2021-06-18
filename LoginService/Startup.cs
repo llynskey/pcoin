@@ -37,12 +37,17 @@ namespace LoginService
                                         .AllowAnyMethod();
                                     });
             });
+            services.Configure<CustomerDatabaseSettings>(
+                Configuration.GetSection(nameof(CustomerDatabaseSettings)));
 
-            services.Configure<DatabaseSettings>(
-                Configuration.GetSection(nameof(DatabaseSettings)));
+            services.AddSingleton<ICustomerDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<CustomerDatabaseSettings>>().Value);
 
-            services.AddSingleton<IDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+            services.Configure<VendorDatabaseSettings>(
+                Configuration.GetSection(nameof(VendorDatabaseSettings)));
+
+            services.AddSingleton<IVendorDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<VendorDatabaseSettings>>().Value);
 
             services.AddSingleton<VendorService>();
             services.AddSingleton<CustomerService>();

@@ -28,15 +28,18 @@ namespace LoginService.Controllers
         public async Task<ActionResult<Vendor>> LoginVendorAsync(Vendor vendor)
         {
             var Vendor = _vendorService.Get(vendor.Username);
-            var response = Vendor != null && vendor.Pass == Vendor.Pass ? (ActionResult) Ok() : (ActionResult) Unauthorized();
-            if(response == (ActionResult)Ok())
+            var response = Vendor != null && vendor.Pass == Vendor.Pass ? "Okay" : "NotOkay";
+            if (response == "OK")
             {
                 var responseString = await "http://auth.pcoin.life/create"
-                .PostJsonAsync(new { Username = vendor.Username })
+                .PostJsonAsync(new { _id = vendor._id, Username = vendor.Username, Type = "Vendor" })
                 .ReceiveString();
-                System.Console.WriteLine(responseString);
-            };
-            return response;
+                return Ok(responseString);
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
 
         [HttpPost("customer")]
@@ -44,14 +47,11 @@ namespace LoginService.Controllers
         {
             var Customer = _customerService.Get(customer.Username);
             var response = Customer != null && customer.Pass == Customer.Pass ? "OK": "NotOkay";
-            Console.WriteLine(response);
             if (response == "OK")
             {
-                System.Console.WriteLine("here");
                 var responseString = await "http://auth.pcoin.life/create"
-                .PostJsonAsync(new { Username = customer.Username })
+                .PostJsonAsync(new { _id = Customer._id, Username = Customer.Username, Type = "Customer" })
                 .ReceiveString();
-                System.Console.WriteLine(responseString);
                 return Ok(responseString);
             }
             else

@@ -9,7 +9,7 @@ namespace LoginService.Services
         {
             private readonly IMongoCollection<Customer> _customers;
 
-            public CustomerService(IDatabaseSettings settings)
+            public CustomerService(ICustomerDatabaseSettings settings)
             {
                 var client = new MongoClient(settings.ConnectionString);
                 var database = client.GetDatabase(settings.DatabaseName);
