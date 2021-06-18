@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AccountService.Models;
+using vendorManagementService.Models;
 using MongoDB.Driver;
 
-namespace AccountService.Services
+namespace vendorManagementService.Services
 {
     public class VendorService
     {
@@ -17,14 +17,17 @@ namespace AccountService.Services
             _vendors = database.GetCollection<Vendor>(settings.CollectionName);
         }
 
-        public List<Vendor> Get() =>
-            _vendors.Find(vendor => true).ToList();
-
-        public Vendor Get(string username) =>
-            _vendors.Find<Vendor>(vendor => vendor.Username == username).FirstOrDefault();
         public Vendor Create(Vendor vendor)
         {
             _vendors.InsertOne(vendor);
+            return vendor;
+        }
+
+        public Vendor Edit(Vendor vendor)
+        {
+            var filter = Builders<Vendor>.Filter.Eq("_id", vendor._id);
+            //var update = Builders<BsonDocument>.Update.Combine(customer);
+            _vendors.ReplaceOne(filter, vendor);
             return vendor;
         }
     }
