@@ -17,10 +17,17 @@ namespace vendorRetrievalService.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Vendor> getVendor(Vendor vendor){
-            Vendor Vendor = _vendorService.Get(vendor._id);
-            Vendor.Pass = null;
-            return Ok(Vendor);
+        public ActionResult getVendor(string id){
+            Vendor Vendor = _vendorService.Get(id);
+            if (Vendor != null)
+            {
+                Vendor.Pass = null;
+                return Ok(Vendor);
+            }
+            else
+            {
+                return NotFound("Vendor Not Found");
+            }
         }
 
     }

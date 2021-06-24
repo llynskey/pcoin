@@ -1,4 +1,4 @@
-# Default values for vendor-retrieval-service.
+# Default values for venue-retrieval-service.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -81,8 +81,8 @@ tolerations: []
 affinity: {}
 
 matchLabels:
-  app: vendor-retrieval-service
+  app: venue-retrieval-service
 
 metadata:
       labels:
-        app: vendor-retrieval-service
+        app: venue-retrieval-service

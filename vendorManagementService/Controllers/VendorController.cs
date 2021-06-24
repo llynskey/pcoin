@@ -8,17 +8,17 @@ namespace vendorManagementService.Controllers
     [ApiController]
     public class vendorController : ControllerBase
     {
-        private readonly VendorService _vendorService;
+        private readonly VendorService _VendorService;
         
-        public vendorController(VendorService vendorService)
+        public vendorController(VendorService VendorService)
         {
-            _vendorService = vendorService;
+            _VendorService = VendorService;
         }
 
         [HttpPost]
         public ActionResult<User> CreateVendor(Vendor vendor)
         {
-            _vendorService.Create(vendor);
+            _VendorService.Create(vendor);
             return Ok();
         }
 

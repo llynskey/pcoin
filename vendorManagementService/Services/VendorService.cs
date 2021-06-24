@@ -19,15 +19,16 @@ namespace vendorManagementService.Services
 
         public Vendor Create(Vendor vendor)
         {
+            System.Console.WriteLine("here" + vendor.FirstName);
             _vendors.InsertOne(vendor);
             return vendor;
         }
 
         public Vendor Edit(Vendor vendor)
         {
-            var filter = Builders<Vendor>.Filter.Eq("_id", vendor._id);
+            //var filter = Builders<Vendor>.Filter.Eq("_id", vendor._id);
             //var update = Builders<BsonDocument>.Update.Combine(customer);
-            _vendors.ReplaceOne(filter, vendor);
+         //   _vendors.ReplaceOne(filter, vendor);
             return vendor;
         }
     }

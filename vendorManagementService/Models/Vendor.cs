@@ -9,6 +9,5 @@ namespace vendorManagementService.Models
     public class Vendor : User
     {
         public String Type = "Vendor";
-        public int[] venues { get; set; }
     }
 }

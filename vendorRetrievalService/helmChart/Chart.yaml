@@ -1,5 +1,5 @@
-apiVersion: v2
-name: vendor-retrieval-service
+apiVersion: v1
+name: venue-retrieval-service
 description: vendor retrieval service for pcoin
 
 # A chart can be either an 'application' or a 'library' chart.

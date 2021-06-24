@@ -1,4 +1,4 @@
-﻿iusing System;
+﻿using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -7,6 +7,7 @@ namespace vendorRetrievalService.Models
     public class User
     { 
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public String _id { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
