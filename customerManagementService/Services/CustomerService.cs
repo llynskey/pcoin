@@ -17,17 +17,10 @@ namespace customerManagementService.Services
 
                 _customers = database.GetCollection<Customer>(settings.CollectionName);
             }
-
-/*            public List<Customer> Get() =>
-                _customers.Find(vendor => true).ToList();
-
-            public Customer Get(string username) =>
-                _customers.Find<Customer>(customer => customer.Username == username).FirstOrDefault();*/
-
-            public Customer Create(Customer customer)
+            public bool Create(Customer customer)
             {
                 _customers.InsertOne(customer);
-                return customer;
+                return true;
             }
 
             public Customer Edit(Customer customer)
