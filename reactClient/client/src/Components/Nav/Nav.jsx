@@ -2,8 +2,9 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-//import JWT from 'jsonwebtoken';
+import JWT from 'jsonwebtoken';
 import axios from 'axios';
+import Logout from '../Logout/Logout';
 
 
 
@@ -14,37 +15,32 @@ class NavbarClass extends React.Component {
 
   constructor(props) {
    super(props);
-  /*  var jwt = localStorage.getItem('jwt');
+    var jwt = localStorage.getItem('jwt');
     if (jwt) {
-      var token = jwt.split(' ')[1];
-      var user = JWT.decode(token);
+     // var token = jwt.split(' ')[1];
+      var user = JWT.decode(jwt);
       this.state = {
         user: user
       }
-    }*/
+    }
   }
 
-  /*Actions() {
+  Actions() {
     if (this.state != null) {
       var user = this.state.user;
-      if (user.userRole === 'Client') {
-        return (
+      if(user.Type === 'Vendor'){
+        return(
           <div>
-            <NavDropdown.Item href="/createTicket">Open Ticket</NavDropdown.Item>
+
           </div>
         )
       }
-      if(user.userRole === 'Support'){
+      if(user.Type === 'Customer'){
         return(
           <div>
-            <NavDropdown.Item href="/createTicket">Open Ticket On Behalf Of Client</NavDropdown.Item>
-          </div>
-        )
-      }
-      if(user.userRole === 'Admin'){
-        return(
-          <div>
-            <NavDropdown.Item href="/register">Register A New User</NavDropdown.Item>
+                        <NavDropdown.Item href="/venues">View Venues</NavDropdown.Item>
+                        <NavDropdown.Item href="/vouchers">View Vouchers</NavDropdown.Item>
+
           </div>
         )
       }
@@ -61,9 +57,9 @@ loggedIn() {
       <Logout />
     );
   } else {
-    return (<Nav.Link href="/login">Login</Nav.Link>);
+    return (<Nav.Link href="/">Login</Nav.Link>);
   }
-}*/
+}
 
 
 
@@ -71,16 +67,16 @@ loggedIn() {
 render() {
   return (
     <Navbar class="navbar-dark" fluid>
-      <Navbar.Brand href="/home">Pcoin</Navbar.Brand>
+      <Navbar.Brand href="/">Pcoin</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/home">Home</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/createAccount">Create Account</Nav.Link>
           <NavDropdown title='Actions'>
-          
+          {this.Actions()}
           </NavDropdown>
-            
+          {this.loggedIn()}
           
         </Nav>
       </Navbar.Collapse>

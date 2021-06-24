@@ -1,0 +1,10 @@
+@media all and (min-width: 480px) {
+    .CreateVenue {
+      padding: 60px 0;
+    }
+  
+    .CreateVenue form {
+      margin: 0 auto;
+      max-width: 620px;
+    }
+  }

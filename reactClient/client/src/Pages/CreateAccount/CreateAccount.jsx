@@ -29,8 +29,7 @@ class CreateAccount extends React.Component {
   async registerPost() {
     console.log("type"+ this.state.type);
     if(this.state.type == "Customer"){
-    return axios.post('http://account.pcoin.life/customer', {
-      _id: "69",
+    return axios.post('http://manage-customer.pcoin.life', {
       FirstName: this.state.firstName,
       LastName:  this.state.lastName,
       Email:      this.state.email,
@@ -38,19 +37,18 @@ class CreateAccount extends React.Component {
       Pass: this.state.password
     },{headers: { 'Authorization': `${localStorage.getItem('jwt')}`}}).then((res) => {
       if (res.status === 200) {
-        document.location.href = '/login';
+        document.location.href = '/';
       } else {
         console.error("registration error");
       }
     });
   }else{
-    return axios.post('http://account.pcoin.life/vendor', {
-      _id: "69",
+    return axios.post('http://manage-vendor.pcoin.life', {
       FirstName: this.state.firstName,
       LastName:  this.state.lastName,
       Email:      this.state.email,
       Username: this.state.username,
-      Password: this.state.password
+      Pass: this.state.password
     },{headers: { 'Authorization': `${localStorage.getItem('jwt')}`}}).then((res) => {
       if (res.status === 200) {
         document.location.href = '/login';
@@ -143,8 +141,8 @@ class CreateAccount extends React.Component {
           </Form.Group>
           <Form.Group size="lg" controlId="Type">
             <Form.Control as="select" value={this.state.type} onChange={(e) => this.setType(e.target.value)}>
-              <option selected value="Client">Customer</option>
-              <option value="Support">Vendor</option>
+              <option selected value="Customer">Customer</option>
+              <option value="Vendor">Vendor</option>
             </Form.Control>
           </Form.Group>
           <Button block size="lg" type="submit">
