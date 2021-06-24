@@ -28,16 +28,19 @@ namespace LoginService.Controllers
         public async Task<ActionResult<Vendor>> LoginVendorAsync(Vendor vendor)
         {
             var Vendor = _vendorService.Get(vendor.Username);
+
             var response = Vendor != null && vendor.Pass == Vendor.Pass ? "Okay" : "NotOkay";
-            if (response == "OK")
+            if (response == "Okay")
             {
+                Console.WriteLine("OK");
                 var responseString = await "http://auth.pcoin.life/create"
-                .PostJsonAsync(new { _id = vendor._id, Username = vendor.Username, Type = "Vendor" })
+                .PostJsonAsync(new { _id = Vendor._id, Username = Vendor.Username, Type = "Vendor" })
                 .ReceiveString();
                 return Ok(responseString);
             }
             else
             {
+                Console.WriteLine("Not okay");
                 return Unauthorized();
             }
         }

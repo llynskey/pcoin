@@ -7,6 +7,7 @@ namespace LoginService.Models
     public class User
     { 
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public String _id { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
