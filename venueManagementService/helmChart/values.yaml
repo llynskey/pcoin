@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/llynskey/pcoin/account-service
+  repository: ghcr.io/llynskey/pcoin/venue-management-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -49,7 +49,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: localhost
-    - host: account.pcoin.life
+    - host: manage-venue.pcoin.life
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -81,8 +81,8 @@ tolerations: []
 affinity: {}
 
 matchLabels:
-  app: account-service
+  app: venue-management-service
 
 metadata:
       labels:
-        app: account-service
+        app: venue-management-service
