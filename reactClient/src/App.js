@@ -8,10 +8,9 @@ import CreateAccount from './Pages/CreateAccount/CreateAccount';
 import LandingPage from './Pages/LandingPage/LandingPage';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
-import VendorProfile from './Pages/Profiles/VendorProfile/VendorProfile';
-import CustomerProfile from './Pages/Profiles/CustomerProfile/CustomerProfile';
 import CreateVenue from './Pages/Profiles/VendorProfile/CreateVenue/CreateVenue';
 import ViewVenue from './Pages/Profiles/VendorProfile/ViewVendor/ViewVenue'
+import CreateVoucher from './Pages/Profiles/VendorProfile/CreateVoucher/CreateVoucher';
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
             <Route exact path="/vendor-login"><VendorLogin/></Route>
             <Route exact path="/customer-login"><CustomerLogin/></Route>
             <Route exact path="/createAccount"><CreateAccount/></Route>
+            <Route exact path="/createVoucher"><CreateVoucher/></Route>
             <Route exact path="/createVenue"><CreateVenue/></Route>
             <Route path="/viewVenue:id"><ViewVenue/></Route>
         </Switch>

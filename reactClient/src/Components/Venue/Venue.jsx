@@ -22,7 +22,7 @@ const Venue = (props) => {
                         <p>{address}</p>
                         <p>{city}</p>
                     </Card.Body>
-                    <Button onClick={viewVenue}>View Vendor</Button>
+                    <Button onClick={viewVenue}>View Venue</Button>
                 </Card>
                 </Col>
             </div>

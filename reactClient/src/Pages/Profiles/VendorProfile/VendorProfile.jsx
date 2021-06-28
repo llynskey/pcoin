@@ -3,6 +3,8 @@ import {Button, Row,Col} from 'react-bootstrap';
 import JWT from 'jsonwebtoken';
 import axios from 'axios';
 import Venue from '../../../Components/Venue/Venue';
+import Venues from '../../../Components/Venues/Venues';
+import Vouchers from '../../../Components/Vouchers/Vouchers';
 
 class VendorProfile extends Component {
 
@@ -34,7 +36,7 @@ class VendorProfile extends Component {
             //this.setDOB(res.data.DOB);
             this.setEmail(res.data.email);
             console.log(this.state.User);
-            this.getVenues();
+           // this.getVenues();
             }else{
                 alert(res);
             }
@@ -44,7 +46,7 @@ class VendorProfile extends Component {
         });
     }
 
-    getVenues(){
+    /*getVenues(){
         axios.get("http://retrieve-venue.pcoin.life/byOwner",{
             params: {ownerId: this.state.User.sub}
         }).then((res) => {
@@ -54,20 +56,7 @@ class VendorProfile extends Component {
             alert(err);
             throw(err);
         });
-    }
-
-    displayVenues(){
-        if(this.state.Venues != null){
-                this.state.Venues.map((venue)=>{
-                    console.log(venue)
-                return <Venue venueValue={venue}/>
-                })
-        }else{
-            return(
-                <h2>No Venues Found</h2>
-            )
-        }
-    }
+    }*/
     
 
     setFirstname(firstname){
@@ -97,12 +86,21 @@ class VendorProfile extends Component {
                 <div>
                     <h3>Venues</h3>
                 <Row>  
-                     {this.displayVenues}   
+                     <Venues/>  
                 </Row>
-                </div>
                 <div>
-                    <Button href="/createVenue">Create Venue</Button>
+                    <Button href="/createVenue">Create New Venue</Button>
                 </div>
+                </div>
+                <br/>
+                <h3>Vouchers</h3>
+                <Row>
+                    <Vouchers/>
+                </Row>
+                <div>
+                    <Button href="/createVoucher">Create New Voucher</Button>
+                </div>
+                <br/>
             </div>
         )
     }

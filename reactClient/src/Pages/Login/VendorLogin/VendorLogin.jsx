@@ -19,9 +19,9 @@ export default function CustomerLogin(props) {
             if (res.status === 200) {
                 console.log(res.data);
                 localStorage.setItem('jwt', res.data);
-                document.location.href = '/vendor';
+                document.location.href = '/home';
             }
-        }).catch(err => alert(err.response.data));
+        }).catch(err => alert(err));
     }
 
 

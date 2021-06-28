@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
+import ActionButtons from './ActionButtons/ActionButtons';
 import './Voucher.css';
 
 const Voucher = (props) => {
@@ -16,7 +17,7 @@ const Voucher = (props) => {
                     <Card.Body>
                         <p>{price} points</p>
                     </Card.Body>
-                    <Button>Buy</Button>
+                    <ActionButtons/>
                 </Card>
                 </Col>
             </div>
