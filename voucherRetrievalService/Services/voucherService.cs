@@ -32,5 +32,10 @@ namespace voucherRetrievalService.Services
         {
             return _vouchers.Find<Voucher>(voucher => voucher.OfferedBy.Contains(venueId)).ToList<Voucher>();
         }
+
+        public List<Voucher> GetByOwnerId(string ownerId)
+        {
+            return _vouchers.Find<Voucher>(voucher => voucher.ownerId.Contains(ownerId)).ToList<Voucher>();
+        }
     }
 }

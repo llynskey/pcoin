@@ -22,13 +22,21 @@ namespace voucherManagementService.Controllers
             return Ok();
         }
 
-        /*[HttpPost("voucher")]
-        public ActionResult AddVoucher(voucher voucher, Voucher voucher)
+        [HttpPut("/edit")]
+
+        public ActionResult<Voucher> Edit(Voucher voucher)
         {
-            System.Console.WriteLine("venID"+voucher._id);
-            System.Console.WriteLine("VCHR"+voucher.ToString());
-           // _voucherService.AddVoucher(voucherId, voucher);
+            _voucherService.Edit(voucher._id,voucher);
             return Ok();
-        }*/
+        }
+
+        [HttpPut("/offeredBy")]
+
+        public ActionResult<Voucher> AddVoucherToVenue(Voucher voucher)
+        {
+            System.Console.WriteLine(voucher);
+            _voucherService.AddOfferedBy(voucher._id, voucher);
+            return Ok();
+        }
     }
 }

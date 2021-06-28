@@ -19,14 +19,14 @@ namespace voucherRetrievalService.Controllers
             _voucherService = voucherService;
         }
 
-        [HttpGet]
+        [HttpGet("byId")]
         public ActionResult<Voucher> getvoucher(string id){
             var ID = ObjectId.Parse(id);
             Voucher voucher = _voucherService.Get(id);
             return Ok(voucher);
         }
 
-        [HttpGet("/all")]
+        [HttpGet]
         public ActionResult<List<Voucher>> getvouchers()
         {
             List<Voucher> vouchers = _voucherService.Get();
@@ -38,6 +38,13 @@ namespace voucherRetrievalService.Controllers
         public ActionResult getVouchersOfferedByVenue(string venueId)
         {
             List<Voucher> vouchers = _voucherService.GetByVenueId(venueId);
+            return Ok(vouchers);
+        }
+
+        [HttpGet("ownedBy")]
+        public ActionResult getVouchersOwnedByVendor(string vendorId)
+        {
+            List<Voucher> vouchers = _voucherService.GetByOwnerId(vendorId);
             return Ok(vouchers);
         }
 

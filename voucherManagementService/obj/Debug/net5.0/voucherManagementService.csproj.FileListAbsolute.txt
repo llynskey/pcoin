@@ -1,3 +1,9 @@
+C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.AssemblyInfoInputs.cache
+C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.AssemblyInfo.cs
+C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.csproj.CoreCompileInputs.cache
+C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.csprojAssemblyReference.cache
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug\net5.0\appsettings.json
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug\net5.0\voucherManagementService.exe
@@ -19,12 +25,6 @@ C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
-C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.csprojAssemblyReference.cache
-C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.AssemblyInfoInputs.cache
-C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.AssemblyInfo.cs
-C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.csproj.CoreCompileInputs.cache
-C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\voucherManagementService.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\staticwebassets\voucherManagementService.StaticWebAssets.Manifest.cache
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\staticwebassets\voucherManagementService.StaticWebAssets.xml
 C:\Users\lawre\Desktop\pcoin-test-clone\pcoin\voucherManagementService\obj\Debug\net5.0\scopedcss\bundle\voucherManagementService.styles.css
