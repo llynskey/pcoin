@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Timers;
 
 namespace customerManagementService.Models
 {
-    public class Vendor : User
+    public class MyVoucher
     {
-        public String Type = "Vendor";
-        public int[] venues { get; set; }
+        public String _id { get; set; }
+
+        public bool Redeemed {get; set;}
     }
 }

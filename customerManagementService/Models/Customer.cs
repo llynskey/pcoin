@@ -8,5 +8,7 @@ namespace customerManagementService.Models
     public class Customer : User
     {
         public String Type = "Customer";
+
+        public 
     }
 }
