@@ -7,6 +7,6 @@ namespace JwtAuthService.services
 {
     public interface ITokenBuilder
     {
-        string BuildToken(String username);
+        string BuildToken(String _id,String username,String type);
     }
 }

@@ -20,7 +20,8 @@ namespace JwtAuthService.Controllers
        [HttpPost("create")]
        public ActionResult CreateToken(User user)
         {
-            var token = _tokenBuilder.BuildToken(user.Username);
+            System.Console.WriteLine(user.Username + " " + user._id + " " + user.Type);
+            var token = _tokenBuilder.BuildToken(user._id,user.Username,user.Type);
             return Ok(token);
         }
         
